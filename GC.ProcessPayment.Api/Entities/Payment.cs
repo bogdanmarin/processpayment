@@ -14,13 +14,14 @@ namespace GC.ProcessPayment.Api.Entities
         [Required]
         public string CardHolder { get; set; }
 
-        [Required]
+        //Inherently required, don't need require attribute
         [ExpirationDate]
         public DateTime ExpirationDate { get; set; }
 
         [SecurityCode]
         public string SecurityCode { get; set; }
 
+        //Inherently required, don't need require attribute
         [Range(0.0, Double.PositiveInfinity)]
         public decimal Amount { get; set; }
     }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GC.ProcessPayment.Api.Common;
 using GC.ProcessPayment.Api.Controllers;
+using GC.ProcessPayment.Engine;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,9 +34,14 @@ namespace GC.ProcessPayment.FrontEnd
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton<ICheapPaymentGateway, CheapPaymentGateway>();
+            services.AddSingleton<IExpensivePaymentGateway, ExpensivePaymentGateway>();
+            services.AddSingleton<IPremiumPaymentGateway, PremiumPaymentGateway>();
+            services.AddSingleton<IBankingSystem, BankingSystem>();
+
             services.AddMvc()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                    .AddApplicationPart(typeof(ValuesController).Assembly);
+                    .AddApplicationPart(typeof(PaymentsController).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

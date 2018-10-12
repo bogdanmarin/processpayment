@@ -12,5 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\GC.ProcessPayment.Api\GC.ProcessPayment.Api.csproj" />
     <ProjectReference Include="..\GC.ProcessPayment.Api\GC.ProcessPayment.Api.csproj" />
+    <ProjectReference Include="..\GC.ProcessPayment.Engine\GC.ProcessPayment.Engine.csproj" />
   </ItemGroup>
 </Project>

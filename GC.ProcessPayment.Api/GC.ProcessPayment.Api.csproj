@@ -17,5 +17,7 @@
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="DataAnnotation\" />
+    <Folder Include="Common\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
 </Project>
