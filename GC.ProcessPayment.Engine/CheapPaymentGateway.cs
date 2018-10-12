@@ -11,6 +11,9 @@ namespace GC.ProcessPayment.Engine
 
         public override bool Process(Payment payment)
         {
+            if (payment == null)
+                return false;
+
             if (payment.Amount > 20)
             {
                 return _next != null && _next.Process(payment);

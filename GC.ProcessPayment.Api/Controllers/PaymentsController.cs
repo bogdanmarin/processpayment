@@ -33,7 +33,7 @@ namespace GC.ProcessPayment.Api.Controllers
         {
             _bankingSystem.Process(new Payment()
             {
-                Amount = 25,
+                Amount = 501,
                 CardHolder = "Bogdan Marin",
                 CreditCardNumber = "4369495982823055",
                 ExpirationDate = DateTime.Today.AddDays(1)
