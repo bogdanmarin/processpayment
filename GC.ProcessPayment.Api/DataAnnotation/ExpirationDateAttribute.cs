@@ -7,12 +7,12 @@ namespace GC.ProcessPayment.Api.DataAnnotation
 {
     internal class ExpirationDateAttribute : ValidationAttribute
     {
-        public ExpirationDateAttribute()
-        {
-        }
-
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            if (value == null){
+                return new ValidationResult(ErrorMessages.INVALID_EXPIRATION_DATE);
+            }
+
             bool isValueDate = value is DateTime;
 
             if (!isValueDate)

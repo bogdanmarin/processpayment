@@ -11,6 +11,9 @@ namespace GC.ProcessPayment.Engine
             if (payment == null)
                 return false;
 
+            if (payment.Amount < 0)
+                return false;
+
             return Retry.Execute(() =>
             {
                 //simulate error

@@ -24,24 +24,7 @@ namespace GC.ProcessPayment.Api.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Payment value)
         {
-            return Ok();
+            return Ok(_bankingSystem.Process(value));
         }
-
-        // POST api/payments
-        [HttpGet]
-        public IActionResult Get()
-        {
-            _bankingSystem.Process(new Payment()
-            {
-                Amount = 501,
-                CardHolder = "Bogdan Marin",
-                CreditCardNumber = "4369495982823055",
-                ExpirationDate = DateTime.Today.AddDays(1)
-
-            });
-
-            return Ok();
-        }
-
     }
 }
